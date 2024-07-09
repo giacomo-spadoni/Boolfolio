@@ -38,7 +38,9 @@ class ProjectController extends Controller
     {
         $data = $request -> all();
         $newProject = new Project;
-        $newProject -> $data['title']; 
+        $newProject->title = $data['title'];
+        $newProject->save();
+        return redirect()->route('admin.show', $newProject->id);
     }
 
     /**
@@ -46,7 +48,11 @@ class ProjectController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $selectedProject =  Project::findOrFail($id);
+        $data =[
+            "project" => $selectedProject
+        ];
+        return view("admin.show", $data);
     }
 
     /**
