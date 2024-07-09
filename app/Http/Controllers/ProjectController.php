@@ -24,7 +24,11 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        // $data = [
+        //     'projects' => Project::all()
+        // ];
+        // return view('create', $data)
+        return view("admin.create");
     }
 
     /**
@@ -32,7 +36,9 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request -> all();
+        $newProject = new Project;
+        $newProject -> $data['title']; 
     }
 
     /**
