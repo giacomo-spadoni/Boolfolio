@@ -14,19 +14,32 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        $admin = [
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+            0 => [
+                'name' => 'Antonio',
+                'email' => 'antonio@dattolo.it',
+                'password' => Hash::make('123456')
+            ],
+            1 =>   [
+                'name' => 'Luca',
+                'email' => 'luca@mariselli.it',
+                'password' => Hash::make('123456')
+            ],
+            2 =>  [
+                'name' => 'Giacomo',
+                'email' => 'giacomo@spadoni.it',
+                'password' => Hash::make('123456')
+            ],
 
-        if (!User::where("email", "luca@lambia.it")->first()) {
-            $mainUser = new User();
-            $mainUser->name = "Luca";
-            $mainUser->email = "luca@lambia.it";
-            $mainUser->password = Hash::make('1backdoor2big');
-            $mainUser->save();
-        }
+        ];
+        for ($i = 0; $i < count($admin); $i++) {
+            $user = User::create($admin[$i], [
+                'name' => $admin[$i]['name'],
+                'email' => $admin[$i]['email'],
+                'password' => $admin[$i]['password'],
+            ]);
+            $user->save();
+        };
     }
 }
