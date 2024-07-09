@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="container-fluid mt-4">
-        <a href="{{ route(admin . project . index) }}">Prova index</a>
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
