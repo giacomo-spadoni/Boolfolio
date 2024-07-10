@@ -24,7 +24,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        
+
         return view("admin.create");
     }
 
@@ -33,7 +33,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request -> all();
+        $data = $request->all();
         $newProject = new Project;
         $newProject->title = $data['title'];
         $newProject->description = $data['description'];
@@ -48,7 +48,7 @@ class ProjectController extends Controller
     public function show(string $id)
     {
         $selectedProject =  Project::findOrFail($id);
-        $data =[
+        $data = [
             "project" => $selectedProject
         ];
         return view("admin.show", $data);
@@ -60,7 +60,7 @@ class ProjectController extends Controller
     public function edit(string $id)
     {
         $selectedProject =  Project::findOrFail($id);
-        $data =[
+        $data = [
             "project" => $selectedProject
         ];
         return view("admin.edit", $data);
@@ -69,20 +69,22 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, string $id)
     {
+        $project =  Project::findOrFail($id);
         $data = $request->validate([
             "title" => "required",
             "description" => "required",
             "img" => "required",
-            
+
         ]);
-        
-        
+
+
         // $project->fill($data);
         // $project->save();
         $project->update($data);
-        return redirect()->route('admin.show', $project);
+
+        return redirect()->route('admin.Project.show', $project->id);
     }
 
     /**
