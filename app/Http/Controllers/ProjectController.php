@@ -59,15 +59,30 @@ class ProjectController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $selectedProject =  Project::findOrFail($id);
+        $data =[
+            "project" => $selectedProject
+        ];
+        return view("admin.edit", $data);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->validate([
+            "title" => "required",
+            "description" => "required",
+            "img" => "required",
+            
+        ]);
+        
+        
+        // $project->fill($data);
+        // $project->save();
+        $project->update($data);
+        return redirect()->route('admin.show', $project);
     }
 
     /**
