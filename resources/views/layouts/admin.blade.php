@@ -46,6 +46,20 @@
                             </li>
 
                             <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.Project.index' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.Project.index') }}">
+                                    <i class="fa-solid fa-diagram-project"></i> Projects
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.Project.create' ? 'bg-secondary' : '' }}"
+                                    href="{{ route('admin.Project.create') }}">
+                                    <i class="fa-solid fa-plus"></i> Add a Project
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
                                 <a class="nav-link text-white" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                     <i class="fa-solid fa-sign-out-alt fa-lg fa-fw"></i> {{ __('Logout') }}

@@ -3,7 +3,6 @@
 @section('content')
     <form action="{{ route('admin.Project.store') }}" method="POST">
         @csrf
-
         <div class="w-50 m-5">
             <label for="formGroupExampleInput" class="form-label">Title</label>
             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Project Title" name="title">
