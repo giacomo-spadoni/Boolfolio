@@ -68,5 +68,5 @@
             </tbody>
         </table>
     </section>
-    @endsection
+    
 @endsection
