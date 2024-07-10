@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@include('partials.navbar')
 @section('content')
     <form action="{{ route('admin.Project.update', $project->id) }}" method="POST">
         @method('PUT')

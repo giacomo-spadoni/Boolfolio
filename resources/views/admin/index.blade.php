@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@include('partials.navbar')
 @section('content')
     {{-- <div class="container-fluid mt-4">
         <div class="row justify-content-center">
@@ -46,12 +46,12 @@
                                 colonna per i tasti modifica e delete
                             </span>
                             <div class="d-flex">
-                                {{--
-                            <a href="comic/{{$item->id}}" style="text-style:none;">
+                                
+                            <a href="Project/{{$item->id}}" style="text-style:none;">
                                 <button type="submit" class="badge" style="background-color: black; color: rgb(13, 65, 250)">
                                     More details
                                 </button>
-                            </a>  --}}
+                            </a> 
                                 <a href="Project/{{ $item->id }}/edit" style=" text-style:none;">
                                     <button type="submit" class="badge"
                                         style="background-color: black; color: rgb(11, 197, 52)">
