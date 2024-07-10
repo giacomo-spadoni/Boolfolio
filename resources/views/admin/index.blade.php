@@ -1,26 +1,6 @@
 @extends('layouts.admin')
 @include('partials.navbar')
 @section('content')
-    {{-- <div class="container-fluid mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
     <section class="container p-2 my-5">
         <table class="w-100">
             <thead>
@@ -39,12 +19,9 @@
                         <td class="w-25 p-1"><img src="{{ $item['img'] }}"
                                 class="card-img-top object-fit-fill border rounded" alt="..."
                                 style="height: 100px; width :100px"></td>
-                        <td class="w-50">{{ $item['title'] }}</td>
-                        <td>{{ $item['description'] }}</td>
+                        <td class="w-25">{{ $item['title'] }}</td>
+                        <td class="w-50">{{ $item['description'] }}</td>
                         <td>
-                            <span>
-                                colonna per i tasti modifica e delete
-                            </span>
                             <div class="d-flex">
                                 
                             <a href="Project/{{$item->id}}" style="text-style:none;">
