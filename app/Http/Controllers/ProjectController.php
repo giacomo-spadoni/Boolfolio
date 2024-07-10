@@ -15,8 +15,8 @@ class ProjectController extends Controller
         $data = [
             'projects' => Project::all()
         ];
-        // return view('index', $data)
-        return 'questo e la rotta index';
+        return view('admin.index', $data);
+        // return 'questo e la rotta index';
     }
 
     /**
