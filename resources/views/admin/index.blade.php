@@ -58,11 +58,11 @@
                                         Modify
                                     </button>
                                 </a>
-                                {{-- <form action="{{ route('comic.destroy', $item->id) }}" method="POST">
-                                @csrf
-                                @method("DELETE")
-                                <button type="submit" class="badge" style="background-color: black; color: red">Delete</a>
-                            </form> --}}
+                                <form action="{{ route('admin.Project.destroy', $item->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="badge" style="background-color: black; color: red">Delete
+                                </form>
                             </div>
                         </td>
                     </tr>
