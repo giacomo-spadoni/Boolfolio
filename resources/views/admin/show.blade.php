@@ -7,8 +7,8 @@
     </h1>
     <div class="col-12 d-flex">
         <div class="text-center col-6">{{ $project->description }}</div>
-        <div class="my-3 col-6 h-100">
-            <img class="h-100" src="{{ $project->img }}" alt="">
+        <div class="col-6 overflow-hidden" style="object-fit: cover">
+            <img src="{{ $project->img }}" alt="">
         </div>
     </div>
 </section>

@@ -17,7 +17,7 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
@@ -25,10 +25,10 @@
 
 <body>
     <div id="app">
-
+        @include('partials.navbar')
         <div class="container-fluid vh-100">
             <div class="row h-100">
-                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
+                <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse" style="padding-top:4.5rem ">
                     <div class="position-sticky pt-3">
                         <ul class="nav flex-column">
 
@@ -73,8 +73,8 @@
 
                     </div>
                 </nav>
-
-                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 h-100 overflow-auto" style="padding-top:5rem">
                     @yield('content')
                 </main>
             </div>

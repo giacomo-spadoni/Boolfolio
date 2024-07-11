@@ -1,15 +1,14 @@
 @extends('layouts.admin')
-@include('partials.navbar')
 @section('content')
-    <section class="container p-2 my-5">
+    <section>
         <table class="w-100">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Comics</th>
+                    <th scope="col">Project</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Details</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Option</th>
                 </tr>
             </thead>
             <tbody>
