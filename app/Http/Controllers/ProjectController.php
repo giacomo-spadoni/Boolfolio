@@ -26,8 +26,12 @@ class ProjectController extends Controller
      */
     public function create()
     {
-
-        return view("admin.create");
+        $data = [
+            
+            'type' => Type::all(),
+            
+        ];
+        return view("admin.create", $data);
     }
 
     /**
@@ -40,6 +44,7 @@ class ProjectController extends Controller
         $newProject->title = $data['title'];
         $newProject->description = $data['description'];
         $newProject->img = $data['img'];
+        $newProject->type_id = $data['type_id'];
         $newProject->save();
         return redirect()->route('admin.Project.show', $newProject->id);
     }
