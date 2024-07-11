@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -13,7 +14,8 @@ class ProjectController extends Controller
     public function index()
     {
         $data = [
-            'projects' => Project::all()
+            'projects' => Project::all(),
+            // 'type' => Type::all() Non è necessario in quanto recupera il nome del type attraverso la RELATIONS delle tabelle
         ];
         return view('admin.index', $data);
         // return 'questo e la rotta index';
@@ -61,7 +63,9 @@ class ProjectController extends Controller
     {
         $selectedProject =  Project::findOrFail($id);
         $data = [
-            "project" => $selectedProject
+            "project" => $selectedProject,
+            'type' => Type::all(),
+            // Questo invece è necessario in quanto bisogna passargli tutti gli ID della tabella TYPE
         ];
         return view("admin.edit", $data);
     }
@@ -76,6 +80,7 @@ class ProjectController extends Controller
             "title" => "required",
             "description" => "required",
             "img" => "required",
+            "type_id" => "required"
 
         ]);
 
