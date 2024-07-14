@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         //Creato con:
-        //php artisan make:migration add_category_id_foreing_key_to_projects_table
+        //php artisan make:migration add_type_id_foreing_key_to_projects_table
         //Oppure può essere accettabile anche:
         //php artisan make:migration update_projects_table
         Schema::table('projects', function (Blueprint $table) {
@@ -26,10 +26,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('projects', function (Blueprint $table) {
-            
+
             $table->dropForeign('projects_type_id_foreign');
             $table->dropColumn('type_id');
-
         });
     }
 };
