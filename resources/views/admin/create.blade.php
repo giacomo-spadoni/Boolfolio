@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @include('partials.navbar')
 @section('content')
-    <form action="{{ route('admin.Project.store') }}" method="POST">
+    <form action="{{ route('admin.Project.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="w-50 m-5">
             <label for="formGroupExampleInput" class="form-label">Title</label>
@@ -16,7 +16,6 @@
             <label for="formGroupExampleInput2" class="form-label">Image</label>
             <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Img URL" name="img">
         </div>
-
         <select name="type_id" id="">
             <option value="{{ $type[0]->id }}">{{ $type[0]->name }}</option>
             <option value="{{ $type[1]->id }}">{{ $type[1]->name }}</option>
