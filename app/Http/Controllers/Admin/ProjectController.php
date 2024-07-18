@@ -99,6 +99,15 @@ class ProjectController extends Controller
 
         ]);
 
+        if ($request->hasFile('img')) {
+            // Elimina l'immagine precedente
+            if ($project->img) {
+                Storage::delete($project->img);
+            }
+
+            // Carica la nuova immagine
+            $data['img'] = Storage::put('uploads', $request->file('img'));
+        }
 
         // $project->fill($data);
         // $project->save();
