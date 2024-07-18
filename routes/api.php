@@ -20,5 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('projects', function () {
-    return Project::all();
+    return response()->json([
+        'success' => true,
+        'projects' => Project::with(['technologies', 'type'])->orderByDesc('id')->paginate(),
+    ]);
 });
