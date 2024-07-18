@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -31,6 +32,7 @@ class ProjectController extends Controller
         $data = [
 
             'type' => Type::all(),
+            'technologies' => Technology::all(),
 
         ];
         return view("admin.create", $data);
@@ -48,6 +50,11 @@ class ProjectController extends Controller
         $newProject->img = Storage::put('uploads', $data['img']);
         $newProject->type_id = $data['type_id'];
         $newProject->save();
+
+        if (isset($data['technologies'])) {
+            $newProject->technologies()->attach($data['technologies']);
+        }
+
         return redirect()->route('admin.Project.show', $newProject->id);
     }
 
@@ -72,6 +79,7 @@ class ProjectController extends Controller
         $data = [
             "project" => $selectedProject,
             'type' => Type::all(),
+            'technologies' => Technology::all(),
             // Questo invece è necessario in quanto bisogna passargli tutti gli ID della tabella TYPE
         ];
         return view("admin.edit", $data);
